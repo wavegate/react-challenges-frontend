@@ -1,6 +1,12 @@
 import useFetch from "../hooks/useFetch";
 import { ChallengeType } from "../pages/Challenges";
 import bronze from "../assets/BronzeMedium.png";
+import silver from "../assets/SilverMedium.png";
+import gold from "../assets/GoldMedium.png";
+import platinum from "../assets/PlatinumMedium.png";
+import diamond from "../assets/DiamondMedium.png";
+import master from "../assets/MasterMedium.png";
+import grandmaster from "../assets/GrandmasterMedium.png";
 
 const Challenge = ({
   challenge,
@@ -9,6 +15,10 @@ const Challenge = ({
   challenge: ChallengeType;
   deleteChallenge: Function;
 }) => {
+  const imageUrl = new URL(
+    `../assets/${challenge.rank}Medium.png`,
+    import.meta.url
+  ).href;
   return (
     <div>
       <div
@@ -18,7 +28,7 @@ const Challenge = ({
 
         <div className={`flex items-center gap-4`}>
           <div>Rank: {challenge.rank}</div>
-          <img src={bronze}></img>
+          <img src={imageUrl}></img>
         </div>
       </div>
       <div className={`rounded-b-md bg-gray-50 text-gray-900 p-4`}>

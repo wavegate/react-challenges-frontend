@@ -8,10 +8,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Challenges />}></Route>
-          <Route path="/about" element={<About />}></Route>
-        </Routes>
+        <div className={`mb-6`}>
+          <Routes>
+            <Route path="/" element={<Challenges />}></Route>
+            <Route path="/about" element={<About />}></Route>
+          </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );
