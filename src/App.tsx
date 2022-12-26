@@ -5,7 +5,7 @@ import About from "./pages/About";
 
 function App() {
   return (
-    <div>
+    <div className={`p-4`}>
       <BrowserRouter>
         <Navbar />
         <div className={`mb-6`}>

@@ -1,0 +1,109 @@
+{
+  "challenges": [
+    {
+      "_id": "63a77c24739611023be4033a",
+      "index": 0,
+      "name": "Simple Form",
+      "rank": "Bronze",
+      "requirements": [
+        "Create a simple form in which the user can enter their username and password",
+        "Add a button that logs the username and password to the console when clicked"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a8d5dad2bd75e35f1d638d",
+      "index": 0,
+      "name": "Toggle",
+      "rank": "Bronze",
+      "requirements": [
+        "Display a red box",
+        " Create a toggle button that toggles the box to green and back"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a77d97739611023be40341",
+      "index": 1,
+      "name": "Timer with Pause/Resume/Reset",
+      "rank": "Silver",
+      "requirements": [
+        "Create a timer that counts up by 1 every second",
+        "Add a button that pauses or resumes the timer",
+        "Add a button that resets the timer"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a7c7228f7c9aad446a8cac",
+      "index": 2,
+      "name": "Fetch from an API",
+      "rank": "Gold",
+      "requirements": [
+        "Fetch data from https://jsonplaceholder.typicode.com/users and display a list of names",
+        " Sort the list by name",
+        " Add a button that reverses the order on click"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a7cb448f7c9aad446a8caf",
+      "index": 3,
+      "name": "Higher order component",
+      "rank": "Platinum",
+      "requirements": [
+        "Display a list of numbers from 1 to 100",
+        " Wrap the component in a higher order component that adds a \"Shrink/Expand\" button that shrinks and expands the list to 50 numbers and back to 100"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a7d7578f7c9aad446a8cb6",
+      "index": 4,
+      "name": "Credit card",
+      "rank": "Diamond",
+      "requirements": [
+        "Create a form in which the user can enter their credit card number, name, expiration date, and security code",
+        " Display the entered information in the style of a credit card",
+        " Flip to the back of the credit card when the user is editing the security code",
+        " On submit, validate the input and display any errors or display \"Success!\"",
+        " Credit card number should have 16 digits",
+        " Security code should have 3 digits",
+        " Expiration date should be in a valid date format"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a8cc44d2bd75e35f1d6384",
+      "index": 5,
+      "name": "Realtime chat application",
+      "rank": "Master",
+      "requirements": [
+        "This is a made-up interview by Theo given to Dan Abramov on YouTube, viewable at https://www.youtube.com/watch?v=uqII0AOW1NM&ab_channel=Theo-t3%E2%80%A4gg.",
+        " Create a socket-io backend that emits messages every few seconds as a mock backend chat application",
+        " The backend should emit a message with a text body and a user with a name and color",
+        " Display the messages on the frontend as they are received",
+        " The user's name should be colored according to the user's color",
+        " Add colorblind mode that makes the user's name bold and black instead of colored",
+        " Automatically scroll to the last chat message when it is received",
+        " Add an input that sends a message to the backend that is then emitted and displayed on the frontend",
+        " Replace all copies of \"LUL\" in all messages with a LOL emoji"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    }
+  ]
+}

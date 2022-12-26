@@ -1,12 +1,5 @@
 import useFetch from "../hooks/useFetch";
 import { ChallengeType } from "../pages/Challenges";
-import bronze from "../assets/BronzeMedium.png";
-import silver from "../assets/SilverMedium.png";
-import gold from "../assets/GoldMedium.png";
-import platinum from "../assets/PlatinumMedium.png";
-import diamond from "../assets/DiamondMedium.png";
-import master from "../assets/MasterMedium.png";
-import grandmaster from "../assets/GrandmasterMedium.png";
 
 const Challenge = ({
   challenge,
@@ -19,6 +12,7 @@ const Challenge = ({
     `../assets/${challenge.rank}Medium.png`,
     import.meta.url
   ).href;
+
   return (
     <div>
       <div
