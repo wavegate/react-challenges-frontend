@@ -1,0 +1,283 @@
+{
+  "challenges": [
+    {
+      "_id": "63a77c24739611023be4033a",
+      "index": 0,
+      "name": "Simple Form",
+      "rank": "Bronze",
+      "requirements": [
+        "Create a simple form in which the user can enter their username and password",
+        "Add a button that logs the username and password to the console when clicked"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a8d5dad2bd75e35f1d638d",
+      "index": 0,
+      "name": "Toggle",
+      "rank": "Bronze",
+      "requirements": [
+        "Display a red box",
+        " Create a toggle button that toggles the box to green and back"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a937c79fda160dbb14cfc2",
+      "index": 0,
+      "name": "Debouncing/throttling",
+      "rank": "Platinum",
+      "requirements": [
+        "Fetch all photos from https://jsonplaceholder.typicode.com/photos and display them in a list",
+        " Add an input that searches the list and only displays photos with the search term in its title, ignoring case",
+        " The input should search the list on every key enter",
+        " Change it so that it only searches on key enter every 1 second"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a938f09fda160dbb14cfc7",
+      "index": 0,
+      "name": "Nested state",
+      "rank": "Diamond",
+      "requirements": [
+        "Fake and display a list of comments. Each comment should have a username, a timestamp, and a message body",
+        " Add a form that takes in a username and message and adds a new comment",
+        " Make it so the user can reply to any comment with the form",
+        "Each comment can have multiple comments, and each comment within can have its own comments, and so forth"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a93a259fda160dbb14cfcf",
+      "index": 0,
+      "name": "Simple Counter",
+      "rank": "Bronze",
+      "requirements": [
+        "Display a counter that starts from 0",
+        " Add a button that increments the counter by 1 each time it is clicked"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a9da700efe145184bf426b",
+      "index": 0,
+      "name": "Infinite scrolling",
+      "rank": "Diamond",
+      "requirements": [
+        "Fetch the first 10 passengers from https://api.instantwebtools.net/v1/passenger?page=0&size=10",
+        " Display all the data so that it looks nice",
+        " When the user gets to the bottom of the list, make it so that it fetches the next 10",
+        " Display \"Loading...\" at the end of the list whenever the next page is being fetched"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a9f67f0efe145184bf4276",
+      "index": 0,
+      "name": "Pagination",
+      "rank": "Gold",
+      "requirements": [
+        "Fetch all photos from https://jsonplaceholder.typicode.com/photos",
+        " Display a page of 25 photos",
+        " Add a previous and next button that switches to the next or previous list of 25 photos",
+        " Make the previous and next button disabled if there are no previous or next pages",
+        " Display the current page and total number of pages",
+        " Add an input and submit button that switches to the correct page on button click",
+        " Only one fetch request is required"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63aa004c0efe145184bf4285",
+      "index": 0,
+      "name": "Progress bar",
+      "rank": "Silver",
+      "requirements": [
+        "Create a bar that represents progress of some task out of 100%",
+        " Add a button that adds 10% to the progress",
+        " Add a button that removes 10% to the progress",
+        " The buttons should not do anything at 100% or 0%, respectively",
+        " Animate the bar so it changes smoothly on button click"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63aa011d0efe145184bf428a",
+      "index": 0,
+      "name": "Tabs",
+      "rank": "Silver",
+      "requirements": [
+        "Find a list of 5 poems and their titles",
+        " Add 5 tab buttons with the titles that shows the poem when they are selected",
+        " Only the selected poem should be displayed (only one at any time)"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63aa23d70efe145184bf4292",
+      "index": 0,
+      "name": "Error Boundaries",
+      "rank": "Gold",
+      "requirements": [
+        "Create two components, each of which fetches and displays a list of users from https://jsonplaceholder.typicode.com/users",
+        " Change one to fetch data from https://jsonpOOPSTYPOholder.typicode.com/users",
+        " On failing to fetch from the erroneous URL, throw an error",
+        " Wrap both components in an error boundary so the entire app does not crash"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63aa2c3d0efe145184bf4299",
+      "index": 0,
+      "name": "CRUD",
+      "rank": "Master",
+      "requirements": [
+        "Mock or create a backend that allows the user to retrieve a list of todos, edit a todo, delete a todo, and add a todo",
+        " On page load, make a GET request to retrieve and display the list of todos",
+        " Display \"Loading...\" when the request is loading",
+        " Add a button to the top of the page labeled \"Create todo,\" which shows a form for creating a new todo (eg. title and description)",
+        " Upon submitting the form, send a POST request. If successful, append the newly created todo to your displayed list",
+        " Add optimistic updates so that the todo is displayed in your list while the request is in process, and reverts the list if the request fails (you can use React Query)",
+        " Add an \"Edit\" button to each todo that shows a form that allows the user to make changes to the selected todo",
+        " The form should be prefilled with the selected todo's data",
+        " Upon submitting the edit todo form, send a PUT request. If successful, update the edited todo, again with optimistic updates",
+        " Add a \"Delete\" button to each todo that sends a DELETE request and deletes the todo from the list, again with optimistic updates",
+        " Create test cases for each CRUD operation"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63aa589f0efe145184bf42a0",
+      "index": 0,
+      "name": "Counter 2",
+      "rank": "Diamond",
+      "requirements": [
+        "This was a mock interview by The Collab Lab given to Dan Abramov viewable at https://www.youtube.com/watch?v=Hu4qa-gn1Fo",
+        " Create a counter starting from 0 that has two child components that either increment or decrement the counter on button click",
+        " Write the code as if the buttons were deeply nested and avoid prop drilling",
+        " Add functional \"Undo\" and \"Redo\" buttons"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63aa8ce10efe145184bf42ad",
+      "index": 0,
+      "name": "Drag and Drop Sortable",
+      "rank": "Diamond",
+      "requirements": [
+        "Mock a list of posts, each with an index, a title, and body",
+        " Display the list sorted by index",
+        " Make the list drag and droppable such that a user can click on a post and drag the post to before or after a different post and take on that new index",
+        " Do this without requiring React to re-render any posts"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a77d97739611023be40341",
+      "index": 1,
+      "name": "Timer with Pause/Resume/Reset",
+      "rank": "Silver",
+      "requirements": [
+        "Create a timer that counts up by 1 every second",
+        "Add a button that pauses or resumes the timer",
+        "Add a button that resets the timer"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a7c7228f7c9aad446a8cac",
+      "index": 2,
+      "name": "Fetch from an API",
+      "rank": "Gold",
+      "requirements": [
+        "Fetch data from https://jsonplaceholder.typicode.com/users and display a list of names",
+        " Sort the list by name",
+        " Add a button that reverses the order on click",
+        "Abort the request if the component is unmounted"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a7cb448f7c9aad446a8caf",
+      "index": 3,
+      "name": "Higher order component",
+      "rank": "Platinum",
+      "requirements": [
+        "Display a list of numbers from 1 to 100",
+        " Wrap the component in a higher order component that adds a \"Shrink/Expand\" button that shrinks and expands the list to 50 numbers and back to 100"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a7d7578f7c9aad446a8cb6",
+      "index": 4,
+      "name": "Credit card",
+      "rank": "Diamond",
+      "requirements": [
+        "Create a form in which the user can enter their credit card number, name, expiration date, and security code",
+        " Display the entered information in the style of a credit card",
+        " Flip to the back of the credit card when the user is editing the security code",
+        " On submit, validate the input and display any errors or display \"Success!\"",
+        " Credit card number should have 16 digits",
+        " Security code should have 3 digits",
+        " Expiration date should be in a valid date format"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "_id": "63a8cc44d2bd75e35f1d6384",
+      "index": 5,
+      "name": "Realtime chat application",
+      "rank": "Master",
+      "requirements": [
+        "This is a made-up interview by Theo given to Dan Abramov on YouTube, viewable at https://www.youtube.com/watch?v=uqII0AOW1NM&ab_channel=Theo-t3%E2%80%A4gg.",
+        " Create a socket-io backend that emits messages every few seconds as a mock backend chat application",
+        " The backend should emit a message with a text body and a user with a name and color",
+        " Display the messages on the frontend as they are received",
+        " The user's name should be colored according to the user's color",
+        " Add colorblind mode that makes the user's name bold and black instead of colored",
+        " Automatically scroll to the last chat message when it is received",
+        " Add an input that sends a message to the backend that is then emitted and displayed on the frontend",
+        " Replace all copies of \"LUL\" in all messages with a LOL emoji"
+      ],
+      "submissions": [],
+      "comments": [],
+      "__v": 0
+    }
+  ]
+}

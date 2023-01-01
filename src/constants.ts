@@ -1,2 +1,4 @@
-export const BACKEND_URL = "https://dry-citadel-15716.herokuapp.com";
-// export const BACKEND_URL = "http://localhost:5000";
+export const BACKEND_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:5000"
+    : "https://dry-citadel-15716.herokuapp.com";

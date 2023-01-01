@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <div
-      className={`sticky h-16 container mx-auto flex justify-between items-center px-4 mt-6`}
+      className={`sticky h-16 container mx-auto flex justify-between items-center px-8 top-0 bg-white`}
     >
       <div className={`font-bold text-xl flex gap-2 items-center`}>
         <svg

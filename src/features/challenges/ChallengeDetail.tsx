@@ -1,17 +1,27 @@
-import useFetch from "../hooks/useFetch";
-import { ChallengeType } from "../pages/Challenges";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { ChallengeType } from ".";
+import { deleteChallenge } from "../../api/challenges";
+import { BACKEND_URL } from "../../constants";
+import EditChallengeForm from "./EditChallengeForm";
 
-const Challenge = ({
+export default function ChallengeDetail({
   challenge,
-  deleteChallenge,
 }: {
   challenge: ChallengeType;
-  deleteChallenge: Function;
-}) => {
+}) {
+  const queryClient = useQueryClient();
+
   const imageUrl = new URL(
-    `../assets/${challenge.rank}Medium.png`,
+    `../../assets/${challenge.rank}Medium.png`,
     import.meta.url
   ).href;
+
+  const mutation = useMutation({
+    mutationFn: () => deleteChallenge(challenge._id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["challenges"] });
+    },
+  });
 
   return (
     <div>
@@ -37,12 +47,11 @@ const Challenge = ({
       {/* <div>{JSON.stringify(challenge.comments)}</div> */}
       {/* <button
         className="border border-black p-2 rounded hover:bg-black hover:cursor-pointer hover:text-white"
-        onClick={() => deleteChallenge(challenge._id)}
+        onClick={() => mutation.mutate()}
       >
-        Delete Challenge
+        Delete challenge
       </button> */}
+      {/* <EditChallengeForm challenge={challenge} /> */}
     </div>
   );
-};
-
-export default Challenge;
+}

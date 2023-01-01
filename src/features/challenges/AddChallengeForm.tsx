@@ -1,13 +1,23 @@
 import { Dialog, Listbox } from "@headlessui/react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { EditorState, convertToRaw, Editor } from "draft-js";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { BACKEND_URL } from "../constants";
-import useFetch from "../hooks/useFetch";
+import { createChallenge, deleteChallenge } from "../../api/challenges";
+import { BACKEND_URL } from "../../constants";
+import useFetch from "../../hooks/useFetch";
 
 export default function CreateChallengeModal() {
-  const [challengesResult, challengesError, challengesLoaded, challengesFetch] =
-    useFetch(`${BACKEND_URL}/challenges`);
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: (data: any) => createChallenge(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["challenges"] });
+      setIsOpen(false);
+      reset();
+    },
+  });
 
   let [isOpen, setIsOpen] = useState(false);
 
@@ -15,13 +25,14 @@ export default function CreateChallengeModal() {
     register,
     handleSubmit,
     watch,
+    reset,
     control,
     formState: { errors },
   } = useForm({
     defaultValues: {
       name: "Simple Form",
       rank: "Bronze",
-      index: "0",
+      source: "",
       requirements: EditorState.createEmpty(),
     },
   });
@@ -39,7 +50,7 @@ export default function CreateChallengeModal() {
   const onSubmit = (data: any) => {
     const currentContent = data.requirements.getCurrentContent();
     data.requirements = convertToRaw(currentContent).blocks[0].text;
-    challengesFetch("POST", data);
+    mutation.mutate(data);
   };
 
   return (
@@ -67,12 +78,6 @@ export default function CreateChallengeModal() {
               onSubmit={handleSubmit(onSubmit)}
               className={`flex flex-col gap-4`}
             >
-              <label htmlFor="index">Index</label>
-              <input
-                type="text"
-                {...register("index")}
-                className={`px-4 py-2 border border-black-500 rounded-md focus:outline-none focus:ring focus:border-blue-500`}
-              />
               <label htmlFor="name">Name</label>
               <input
                 type="text"
@@ -105,6 +110,12 @@ export default function CreateChallengeModal() {
                 render={({ field: { value, onChange } }) => {
                   return <Editor editorState={value} onChange={onChange} />;
                 }}
+              />
+              <label htmlFor="source">Source</label>
+              <input
+                type="text"
+                {...register("source")}
+                className={`px-4 py-2 border border-black-500 rounded-md focus:outline-none focus:ring focus:border-blue-500`}
               />
               <button type="submit">Submit</button>
               <button onClick={() => setIsOpen(false)}>Cancel</button>

@@ -1,21 +1,22 @@
-import Challenges from "./pages/Challenges";
+import ChallengesPage from "./pages/ChallengesPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className={`p-4`}>
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Navbar />
-        <div className={`mb-6`}>
-          <Routes>
-            <Route path="/" element={<Challenges />}></Route>
-            <Route path="/about" element={<About />}></Route>
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<ChallengesPage />}></Route>
+          <Route path="/about" element={<About />}></Route>
+        </Routes>
       </BrowserRouter>
-    </div>
+    </QueryClientProvider>
   );
 }
 

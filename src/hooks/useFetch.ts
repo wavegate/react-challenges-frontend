@@ -3,12 +3,10 @@ import { useState } from "react";
 type RequestType = "GET" | "POST" | "PUT" | "DELETE";
 
 const useFetch = (url: string) => {
-  const [result, setResult] = useState<any>(null);
-  const [error, setError] = useState<string>("");
-  const [loaded, setLoaded] = useState<boolean>(false);
+  const [response, setResponse] = useState<any>(null);
 
   const fetchData = async (type: RequestType, data?: any) => {
-    setLoaded(false);
+    setResponse("Loading...");
     let response;
     try {
       switch (type) {
@@ -52,18 +50,16 @@ const useFetch = (url: string) => {
       }
       const resultData = await response.json();
       if (response.ok) {
-        setResult(resultData);
-        setLoaded(true);
+        setResponse(resultData);
       } else {
         throw new Error(JSON.stringify(resultData));
       }
     } catch (error) {
-      setError((error as Error).message);
-      setLoaded(true);
+      setResponse((error as Error).message);
     }
   };
 
-  return [result, error, loaded, fetchData];
+  return [response, fetchData];
 };
 
 export default useFetch;
