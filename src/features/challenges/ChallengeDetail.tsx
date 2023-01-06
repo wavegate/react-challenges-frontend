@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
 import { ChallengeType } from ".";
 import { deleteChallenge } from "../../api/challenges";
 import { BACKEND_URL } from "../../constants";
@@ -23,6 +24,8 @@ export default function ChallengeDetail({
     },
   });
 
+  let [isEditOpen, setIsEditOpen] = useState(false);
+
   return (
     <div>
       <div
@@ -45,13 +48,24 @@ export default function ChallengeDetail({
       </div>
       {/* <div>{challenge.submissions}</div> */}
       {/* <div>{JSON.stringify(challenge.comments)}</div> */}
-      {/* <button
+      <button
         className="border border-black p-2 rounded hover:bg-black hover:cursor-pointer hover:text-white"
         onClick={() => mutation.mutate()}
       >
         Delete challenge
-      </button> */}
-      {/* <EditChallengeForm challenge={challenge} /> */}
+      </button>
+      <button
+        className="border border-black p-2 rounded w-fit hover:bg-black hover:cursor-pointer hover:text-white"
+        onClick={() => setIsEditOpen(true)}
+      >
+        Edit challenge
+      </button>
+      {isEditOpen && (
+        <EditChallengeForm
+          challenge={challenge}
+          setIsEditOpen={setIsEditOpen}
+        />
+      )}
     </div>
   );
 }

@@ -1,6 +1,8 @@
+import Pages from ".";
+
 export default function About() {
   return (
-    <div className={`container mx-auto mt-4 px-4`}>
+    <Pages>
       <div>
         React challenges is a list of challenges designed to improve your
         frontend skills using the{" "}
@@ -16,6 +18,6 @@ export default function About() {
         on the web, or from actual interviews. Potential future functions may
         include submissions, examples, and an online IDE.
       </div>
-    </div>
+    </Pages>
   );
 }

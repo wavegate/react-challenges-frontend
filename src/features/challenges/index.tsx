@@ -59,7 +59,7 @@ export default function ChallengesIndex() {
       >
         Download all as JSON
       </button>
-      {/* <AddChallengeForm /> */}
+      <AddChallengeForm />
     </div>
   );
 }

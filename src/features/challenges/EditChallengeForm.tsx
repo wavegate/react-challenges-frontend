@@ -5,11 +5,15 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { ChallengeType } from ".";
 import { updateChallenge } from "../../api/challenges";
+import MyCKEditor from "../../components/MyCKEditor";
+import MyEditor from "../../components/MyEditor";
 
 export default function EditChallengeForm({
   challenge,
+  setIsEditOpen,
 }: {
   challenge: ChallengeType;
+  setIsEditOpen: Function;
 }) {
   const queryClient = useQueryClient();
 
@@ -17,12 +21,10 @@ export default function EditChallengeForm({
     mutationFn: (data: any) => updateChallenge(challenge._id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["challenges"] });
-      setIsOpen(false);
+      setIsEditOpen(false);
       reset();
     },
   });
-
-  let [isOpen, setIsOpen] = useState(false);
 
   const {
     register,
@@ -36,9 +38,10 @@ export default function EditChallengeForm({
       name: challenge.name,
       rank: challenge.rank,
       source: challenge.source,
-      requirements: EditorState.createWithContent(
-        ContentState.createFromText(challenge.requirements.join(";"))
-      ),
+      // requirements: EditorState.createWithContent(
+      //   ContentState.createFromText(challenge.requirements.join(";"))
+      // ),
+      requirements: challenge.requirements.join(";"),
     },
   });
 
@@ -53,23 +56,14 @@ export default function EditChallengeForm({
   ];
 
   const onSubmit = (data: any) => {
-    const currentContent = data.requirements.getCurrentContent();
-    data.requirements = convertToRaw(currentContent).blocks[0].text;
     mutation.mutate(data);
   };
 
   return (
     <div>
-      <button
-        className="border border-black p-2 rounded w-fit hover:bg-black hover:cursor-pointer hover:text-white"
-        onClick={() => setIsOpen(true)}
-      >
-        Edit challenge
-      </button>
-
       <Dialog
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
+        open={true}
+        onClose={() => setIsEditOpen(false)}
         className="relative z-50"
       >
         <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
@@ -97,7 +91,11 @@ export default function EditChallengeForm({
                   return (
                     <Listbox value={value} onChange={onChange}>
                       <Listbox.Label>Rank:</Listbox.Label>
-                      <Listbox.Button>{value}</Listbox.Button>
+                      <Listbox.Button
+                        className={`px-4 py-2 border border-black-500 rounded-md focus:outline-none focus:ring focus:border-blue-500`}
+                      >
+                        {value}
+                      </Listbox.Button>
                       <Listbox.Options>
                         {ranks.map((rank, rankIndex) => (
                           <Listbox.Option key={rankIndex} value={rank}>
@@ -109,21 +107,43 @@ export default function EditChallengeForm({
                   );
                 }}
               />
-              <Controller
+              <label htmlFor="Requirements">Requirements</label>
+              <textarea
+                {...register("requirements")}
+                className={`px-4 py-2 border border-black-500 rounded-md focus:outline-none focus:ring focus:border-blue-500`}
+              />
+              {/* <Controller
                 control={control}
                 name="requirements"
                 render={({ field: { value, onChange } }) => {
                   return <Editor editorState={value} onChange={onChange} />;
                 }}
-              />
-              <label htmlFor="source">Source</label>
+              /> */}
+              {/* <Controller
+                control={control}
+                name="requirements"
+                render={({ field: { value, onChange } }) => {
+                  return <MyCKEditor onChange={onChange} value={value} />;
+                }}
+              /> */}
+              {/* <label htmlFor="source">Source</label>
               <input
                 type="text"
                 {...register("source")}
                 className={`px-4 py-2 border border-black-500 rounded-md focus:outline-none focus:ring focus:border-blue-500`}
-              />
-              <button type="submit">Submit</button>
-              <button onClick={() => setIsOpen(false)}>Cancel</button>
+              /> */}
+              <button
+                type="submit"
+                className={`px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700`}
+              >
+                Submit
+              </button>
+              <button
+                onClick={() => setIsEditOpen(false)}
+                className={`px-4 py-2 text-blue-500 rounded-md border border-blue-500`}
+              >
+                Cancel
+              </button>
             </form>
           </Dialog.Panel>
         </div>

@@ -1,10 +1,11 @@
 import { BACKEND_URL } from "../constants";
 
-const url = `${BACKEND_URL}/challenges`;
+const url = `${BACKEND_URL}/users`;
 
-export const getChallenges = () => fetch(url).then((res) => res.json());
+export const getUsers = () =>
+  fetch(url, { credentials: "include" }).then((res) => res.json());
 
-export const deleteChallenge = (_id: string) => {
+export const deleteUser = (_id: string) => {
   return fetch(url, {
     method: "DELETE",
     headers: {
@@ -15,7 +16,7 @@ export const deleteChallenge = (_id: string) => {
   }).then((res) => res.json());
 };
 
-export const createChallenge = (data: any) => {
+export const createUser = (data: any) => {
   return fetch(url, {
     method: "POST",
     headers: {
@@ -26,7 +27,18 @@ export const createChallenge = (data: any) => {
   }).then((res) => res.json());
 };
 
-export const updateChallenge = (_id: string, data: any) => {
+export const loginUser = (data: any) => {
+  return fetch(`${url}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+    credentials: "include",
+  }).then((res) => res.json());
+};
+
+export const updateUser = (_id: string, data: any) => {
   return fetch(url, {
     method: "PUT",
     headers: {

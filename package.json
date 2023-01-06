@@ -10,15 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.4.0",
+    "@ckeditor/ckeditor5-react": "^5.0.5",
     "@headlessui/react": "^1.7.4",
+    "@hookform/resolvers": "^2.9.10",
     "@tanstack/react-query": "^4.20.4",
     "draft-js": "^0.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.40.0",
-    "react-router-dom": "^6.4.4"
+    "react-router-dom": "^6.4.4",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
+    "@types/ckeditor__ckeditor5-build-classic": "^29.0.1",
     "@types/draft-js": "^0.11.9",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.24",
